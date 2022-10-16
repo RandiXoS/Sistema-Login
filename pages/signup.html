@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link rel="stylesheet" href="/pages/css/signup.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="logo">Registrarse</div>
+
+        <label class="toggle">
+            <span id="off-check">Usuario</span>
+            <span id="on-check">Admin</span>
+            <input type="checkbox" id="myCheck" onclick="myCheck()" />
+            <span class="slider round"></span>
+        </label>
+
+        <div class="login-item">
+            <form class="form form-login">
+                <div class="form-field">
+                    <label class="user" for="login-username"><span class="hidden">Username</span></label>
+                    <input id="login-username" type="text" class="form-input" placeholder="Nombre de Usuario" required>
+                </div>
+                <div class="form-field">
+                    <label class="user" for="login-age"><span class="hidden">Username</span></label>
+                    <input id="login-age" type="text" class="form-input" placeholder="Edad" required>
+                </div>
+
+                <div class="form-field">
+                    <label class="lock" for="login-password"><span class="hidden">Password</span></label>
+                    <input id="login-password" type="password" class="form-input pass-input" placeholder="Contraseña"
+                        required>
+                </div>
+
+                <div class="form-field">
+                    <label class="lock" for="login-password"><span class="hidden">Confirmar Password</span></label>
+                    <input id="login-password" type="password" class="form-input pass-input"
+                        placeholder="Confirmar Contraseña" required>
+                </div>
+
+                <div id="showpass-field">
+                    <input type="checkbox" id="showPassword" />
+                    <label id="showpass-text" for="showPassword">Mostrar Contraseña</label>
+                </div>
+
+                <div class="form-field">
+                    <input type="submit" value="Sign Up">
+                </div>
+                <div class="register-content">
+                    <a href="/index.html">Iniciar Sesión</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://use.typekit.net/rjb4unc.js"></script>
+    <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
+    <script>
+        var isAdmin = false;
+        function myCheck() {
+            var checkBox = document.getElementById("myCheck");
+            var check1 = document.getElementById("off-check");
+            var check2 = document.getElementById("on-check");
+
+            if (checkBox.checked) {
+                isAdmin = true;
+                check1.style.visibility = "hidden";
+                check2.style.visibility = "visible"
+            } else {
+                isAdmin = false;
+                check1.style.visibility = "visible";
+                check2.style.visibility = "hidden"
+            }
+        }
+    </script>
+    <script>
+
+        input_pass = document.getElementsByClassName('pass-input');
+        document.getElementById('showPassword').onclick = function () {
+            if (this.checked) {
+                input_pass[0].type = "text";
+                input_pass[1].type = "text";
+            } else {
+                input_pass[0].type = "password";
+                input_pass[1].type = "password";
+            }
+        };
+    </script>
+</body>
+
+</html>

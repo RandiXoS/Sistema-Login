@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link rel="stylesheet" href="/pages/css/login.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="logo">Inicio de Sesión</div>
+
+        <label class="toggle">
+            <span id="off-check">Usuario</span>
+            <span id="on-check">Admin</span>
+            <input type="checkbox" id="myCheck" onclick="myCheck()" />
+            <span class="slider round"></span>
+        </label>
+
+        <div class="login-item">
+            <form class="form form-login">
+                <div class="form-field">
+                    <label class="user" for="login-username"><span class="hidden">Username</span></label>
+                    <input id="login-username" type="text" class="form-input" placeholder="Nombre de Usuario" required>
+                </div>
+
+                <div class="form-field">
+                    <label class="lock" for="login-password"><span class="hidden">Password</span></label>
+                    <input id="login-password" type="password" class="form-input" placeholder="Contraseña" required>
+                </div>
+
+                <div id="showpass-field">
+                    <input type="checkbox" id="showPassword" />
+                    <label id="showpass-text" for="showPassword">Mostrar Contraseña</label>
+                </div>
+
+                <div class="form-field">
+                    <input type="submit" value="Log in">
+                </div>
+                <div class="register-content">
+                    <a href="/pages/signup.html">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://use.typekit.net/rjb4unc.js"></script>
+    <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
+    <script>
+        var isAdmin = false;
+        function myCheck() {
+            var checkBox = document.getElementById("myCheck");
+            var check1 = document.getElementById("off-check");
+            var check2 = document.getElementById("on-check");
+
+            if (checkBox.checked) {
+                isAdmin = true;
+                check1.style.visibility = "hidden";
+                check2.style.visibility = "visible"
+            } else {
+                isAdmin = false;
+                check1.style.visibility = "visible";
+                check2.style.visibility = "hidden"
+            }
+        }
+    </script>
+    <script>
+        document.getElementById('showPassword').onclick = function () {
+            if (this.checked) {
+                document.getElementById('login-password').type = "text";
+            } else {
+                document.getElementById('login-password').type = "password";
+            }
+        };
+    </script>
+</body>
+
+</html>
